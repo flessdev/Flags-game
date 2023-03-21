@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contraseña</title>
+</head>
+<body>
+  <div id="div_password" align="center">
+    <div id="banner">Contraseña <b></b></div>
+    <br>
+    <br>
+    <div id="text"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="teclado">
+      
+    </div>
+  </div>
+  
+  <style>
+    body{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      margin:0;
+    }
+    #banner{
+      display:flex;
+      align-items: center;
+      text-indent: 10px;
+      font-size: 23pt;
+      height:10vh;
+      width:80vw;
+      background:#FF03AA;
+      
+    }
+    #div_password{
+      width:80vw;
+      height:80vh;
+      background-color: #545D58;
+    }
+    #text{
+      width:30vw;
+      height:10vh;
+      background-color:#F0F3EB;
+      outline:5px solid black;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1cm;
+    }
+    #teclado{
+      background:#000000;
+      width:75vw;
+    }
+    .tecla{
+      width:30px;
+      height:50px;
+      border-radius:10px;
+      background:#F1F43F;
+      border:5px solid #000000;
+    }
+    button:hover{
+      background: gray;
+    }
+  </style>
+  <script>
+    const $ = (a,b=0) => document.querySelectorAll(a)[b]
+    const ran = (a) => Math.floor(Math.random() * a)
+    
+    let lista = ["A", "B", "C", "D", "E", "F"]
+    let string = ""
+    let len = 4
+    let alfabeto = ""
+    let password = ""
+    
+    for(var i = 9; ++i < 36; ){
+      alfabeto += i.toString(36)
+    }
+    
+    while(len > 0){
+      string  += lista[ran(lista.length)]
+      len--
+    }
+    $("b").innerHTML = string
+    
+    
+    ordenado =  string.split("").sort().join("")
+    
+    
+    for(let i = 0; i < alfabeto.length; i++){
+      var nuevo = document.createElement("button")
+      
+      nuevo.classList.add("tecla")
+      nuevo.onclick = add_letter
+      nuevo.innerHTML = alfabeto[i]
+      
+      $("#teclado").appendChild(nuevo)
+      
+    }
+    function add_letter(){
+      if($("#text").innerHTML.length < 4){
+        $("#text").innerHTML += this.innerHTML
+      }
+      if($("#text").innerHTML.length == 4){
+        comprobar()
+      }
+    }
+    function comprobar(){
+      if($("#text").innerHTML == ordenado.toLowerCase()){
+        $("#text").style.background = "green"
+        setTimeout(() => window.location = "index.html",1000)
+      }
+      else{
+        $("#text").style.background = "red"
+        setTimeout(() => $("#text").innerHTML = "",1000)
+        setTimeout(() => $("#text").style.background = "#F0F3EB",1000)
+      }
+    }
+  </script>
+</body>
+</html>

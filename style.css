@@ -1,0 +1,78 @@
+#options{
+  width:80%;
+  height:50vh;
+  outline:5px solid black;
+  
+}
+
+.opt{
+  height:25%;
+  border-bottom: 2px solid black;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23pt;
+  
+}
+#ban{
+  text-indent: 20;
+  background-color:#454758;
+  width:100%;
+}
+#one{
+  position: absolute;
+  left:10px;
+}
+#two{
+  position: absolute;
+  right:10px;
+}
+#co,#in{
+  color:#B4B6D5;
+}
+h1{
+  font-size: 3cm
+}
+p{
+  font-size:20pt;
+}
+#barra{
+  width:100%;
+  height:10px;
+}
+#pedazo{
+  width:100%;
+  background:#38B74D;
+  height:10px;
+}
+
+img{
+  height: 160px;
+  width:auto;
+  
+  object-fit: contain;
+  border:2px solid black ;
+  
+  outline: 1px solid black;
+}
+.luna{
+  background:black;
+  color:white;
+  border-bottom:2px solid white;
+}
+#options.luna{
+  outline:5px solid white;
+}
+img.luna{
+  border-bottom:none;
+  outline:none;
+  outline:1px solid white;
+}
+body{
+  background:white;
+  margin:0;
+}
+*{
+  box-sizing: border-box;
+}
